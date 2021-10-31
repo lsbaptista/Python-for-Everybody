@@ -155,4 +155,32 @@ else:
     
 # %%
 # FUNCTIONS
+max("whatisyourname")
+len("what in the hell ")
 
+import random
+
+for i in range(10):
+    x=random.random()
+    print(x)
+
+# %%
+t=[1,2,3]
+random.choice(t)
+
+# %%
+import math
+
+degree=45
+radians=degree/360*2*math.pi
+math.sin(radians)
+# %%
+# Adding new functions
+def print_lyrics():
+    print("I'm a lumberjack, and I'm okay.")
+    print('I sleep all night and I work all day.')
+
+print(print_lyrics)
+print(type(print_lyrics))
+print_lyrics()
+# %%
