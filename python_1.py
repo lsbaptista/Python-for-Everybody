@@ -112,5 +112,47 @@ print('Second', istr)
 # %%
 # Teste
 print("monica")
+#%%
+# Write a program to prompt the user for hours and rate per hour using input to compute gross pay.
+
+hrs = input("Enter Hours:")
+rate = input("Enter rate per hour:")
+
+try:
+    h = float(hrs)
+    r = float(rate)
+except:
+    print("Error, please enter numeric input")
+    quit()
+
+print(h,r)
+if h <=40:
+    print(h*r)
+else:
+    hmore= h-40
+    hmore=hmore*r*1.5
+    print(40*r + hmore)
 
 # %%
+# Write a program to prompt for a score between 0.0 and 1.0
+score = input("Enter Score: ")
+
+score = float(score)
+if score >=0 and score<=1:
+    if score >= 0.9:
+        print("A")
+    elif score >= 0.8:
+        print("B")
+    elif score >= 0.7:
+        print("C")
+    elif score >= 0.6:
+        print("D")
+    else:
+        print("F")
+else:
+    print("number must be between 0 and 1")
+
+    
+# %%
+# FUNCTIONS
+
