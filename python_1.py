@@ -184,3 +184,170 @@ print(print_lyrics)
 print(type(print_lyrics))
 print_lyrics()
 # %%
+# REPEAT FUNCTION
+def repeat_lyrics():
+    print_lyrics()
+    print_lyrics()
+
+repeat_lyrics()
+# %%
+# Parameters and arguments
+def print_twice(bruce):
+    print(bruce)
+    print(bruce)
+
+import math
+
+print_twice(math.pi)
+print_twice("spam"*4)
+
+mick="What"
+print_twice(mick)
+
+# %%
+# Fruitful functions and void functions
+def addtwo(a,b):
+    added=a+b
+    return added
+
+x=addtwo(4,4)
+print(x)
+
+# %%
+def stuff():
+    print('Hello')
+    return
+    print('World')
+
+stuff()
+# %%
+# Write a program to prompt the user for hours and rate per hour using input to compute gross pay
+
+def computepay(h, r):
+    if h <=40:
+        w=h*r
+        return  w
+    else:
+        hmore= h-40
+        hmore=hmore*r*1.5
+        w=40*r + hmore
+        return w
+
+hrs = input("Enter Hours:")
+rate = input("Enter Rate:")
+h = float(hrs)
+r = float(rate)
+
+p = computepay(h, r)
+
+print("Pay", p)
+
+
+# %%
+# ITERATION
+# The while statement - loop
+n=5
+while n>0:
+    print(n)
+    n=n-1
+print('Blastoff')
+
+# %%
+# Infinite loops and break
+
+while True:
+    line = input('> ')
+    if line == 'done':
+        break
+    print(line)
+print('Done!')
+
+# %%
+# Finishing iterations with continue
+while True:
+    line = input('> ')
+    if line[0] == '#':
+        continue # it ignores and continue executing the code
+    if line == 'done':
+        break
+    print(line)
+print('Done!')
+# %%
+# Definite loops using for
+friends = ['Joseph','Glenn','Sally']
+
+for friend in friends:
+    print('Happy new year:', friend)
+print('Done!')
+# %%
+# Loop patterns
+count = 0
+for itervar in [3, 41, 12, 9, 74, 15]:
+    count = count + 1
+print('Count: ', count)
+
+total = 0
+for itervar in [3, 41, 12, 9, 74, 15]:
+    total = total + itervar #accumulator
+print('Total: ', total)
+
+# %%
+# Maximun and smallest value
+largest = None
+print('Before:', largest)
+for itervar in [3, 41, 12, 9, 74, 15]:
+    if largest is None or itervar > largest :
+        largest = itervar
+    print('Loop:', itervar, largest)
+print('Largest:', largest)
+
+smallest = None
+print('Before:', smallest)
+for itervar in [3, 41, 12, 9, 74, 15]:
+    if smallest is None or itervar < smallest:
+        smallest = itervar
+    print('Loop:', itervar, smallest)
+print('Smallest:', smallest)
+
+
+# %%
+num = 0
+tot = 0.0
+
+while True:
+    sval = input('Enter a number: ')
+    if sval == 'done':
+        break
+    try:
+        fval = float(sval)
+    except:
+        print('invalid error')
+        continue
+    print(fval)
+    num = num +1
+    tot = tot + fval
+
+print('All done')
+print(tot,num,tot/num)
+# %%
+l = None
+s = None
+
+while True:
+    sval = input('Enter a number: ')
+    if sval == 'done': 
+        break
+    try:
+        sval = int(sval)
+    except:
+        print('Invalid input')
+        continue
+    if l is None or sval>l:
+    	l=sval 
+    elif s is None or sval<s:
+        s=sval
+
+print('Maximum is',l)
+print('Minimum is',s)
+
+# %%
