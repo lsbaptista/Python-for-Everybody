@@ -95,3 +95,76 @@ for line in fh:
     count=count+1
 print('Average spam confidence:',total/count)
 
+
+# %%
+fname = input("Enter file name: ")
+fh = open(fname)
+fh=fh.read()
+fh=list(fh.split())
+fh.sort()
+
+rom=list()
+for word in fh:
+    if word not in rom:
+        rom.append(word)
+
+print(rom)
+# %%
+fname = input("Enter file name: ")
+#guardian in a component statement
+if len(fname) < 1:
+    fname = "mbox-short.txt"
+
+fh = open(fname)
+count = 0
+
+for line in fh:
+    line=line.rstrip()
+    if not line.startswith("From "):
+        continue
+    words=line.split()
+    print(words[1])
+    count=count + 1
+    
+    
+print("There were", count, "lines in the file with From as the first word")
+
+
+# %%
+stuff = dict()
+print(stuff['candy'])
+# %%
+stuff = dict()
+print(stuff.get('candy',-1))
+# %%
+
+# DICTIONARY COUNT HISTOGRAM
+
+name = input("Enter file:")
+if len(name) < 1:
+    name = "mbox-short.txt"
+handle = open(name)
+count=0
+_name=[]
+
+for line in handle:
+    line=line.rstrip()
+    if not line.startswith("From "):
+        continue
+    words=line.split()
+    name=words[1]
+    _name.append(name)
+  
+d = dict()
+for name in _name:
+    d[name] = d.get(name,0) + 1
+    
+maximum = 0
+max_key = None
+for k in d:
+    if d[k] > maximum:
+        maximum = d[k]
+        max_key = k
+
+print(max_key, maximum)
+
