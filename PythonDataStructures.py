@@ -168,3 +168,66 @@ for k in d:
 
 print(max_key, maximum)
 
+# %%
+## TUPLES
+# The 10 most common words
+
+fhand=open('romeo.txt')
+counts=dict()
+#Histogram
+for line in fhand:
+    words=line.split()
+    for word in words:
+        counts[word]=counts.get(word,0) + 1
+
+#Reverse key, val to val, key to sort by val
+lst=list()
+for key,val in counts.items():
+    newtup=(val,key)
+    lst.append(newtup)
+
+lst=sorted(lst,reverse=True)
+
+for val,key in lst[:10]:
+    print(key,val)
+
+# List comprehension of the code above:
+print(sorted([(v,k) for k,v in counts.items()]))
+
+# %%
+x , y = 3, 4
+print(y)
+
+# %%
+x = { 'chuck' : 1 , 'fred' : 42, 'jan': 100}
+y = x.items()
+print(y)
+# %%
+days = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun')
+print(days[2])
+# %%
+## Write a program to read through the mbox-short.txt and figure out the distribution
+# by hour of the day for each of the messages
+name = input("Enter file:")
+if len(name) < 1:
+    name = "mbox-short.txt"
+handle = open(name)
+
+counts=dict()
+
+for line in handle:
+    line=line.rstrip()
+    if not line.startswith("From "):
+        continue
+    pos=line.find(':')
+    words=line[pos-2:pos]
+    counts[words]=counts.get(words,0) + 1
+
+    
+    
+newlist=(sorted([(k,v) for k,v in counts.items()]))
+    
+for k,v in newlist:
+    print(k,v) 
+
+# %%
