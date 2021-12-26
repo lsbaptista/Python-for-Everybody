@@ -231,3 +231,6 @@ for k,v in newlist:
     print(k,v) 
 
 # %%
+
+print('Hello. I\'m glad to start this course')
+# %%

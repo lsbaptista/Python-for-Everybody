@@ -1,0 +1,87 @@
+## REGULAR EXPRESSIONS
+# %%
+import re
+
+hand=open('mbox-short.txt')
+for line in hand:
+    line=line.rstrip()
+    if re.search('^X.*:', line): # . is any character and * means zero or more times
+        print(line)
+# %%
+hand=open('mbox-short.txt')
+for line in hand:
+    line=line.rstrip()
+    if re.search('^X-\S+:', line):# \S match any non-whitespace character + one or more times
+        print(line)
+
+##EXTRACTING DATA
+# %%
+x="My 2 favorite numbersx are 19 and 42"
+y=re.findall('[0-9]+',x) # one or more digits + one or more digits
+print(y)
+# %%
+y=re.findall('[AEIOU]+',x) # one or more digits + one or more digits
+print(y)
+# %%
+y=re.findall('[aeiou]+',x) # one or more digits + one or more digits
+print(y)
+# %%
+x="From: Using the : character"
+y=re.findall('^F.+:',x) #greedy algorithm it do not stop at the first :
+print(y)
+# %%
+x="From: Using the : character"
+y=re.findall('^F.+?:',x) # ? do not be greedy 
+print(y)
+# %%
+hand=open('mbox-short.txt')
+for line in hand:
+    line=line.rstrip()
+    y=re.findall('\S+@\S+', line)
+    print(y)
+# %%
+x="From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008"
+y=re.findall('\S+@\S+', x)
+print(y)
+# %%
+y=re.findall('^From (\S+@\S+)', x) # parentesis start extracting only inside them
+print(y)
+# %%
+y=re.findall('^From \S+@\S+', x)
+print(y)
+# %%
+y=re.findall('@([^ ]*)', x) # extract only after@, match non.blanck character, math many of them
+print(y)
+# %%
+y=re.findall('From .*@([^ ]*)', x) # extract only after@, match non.blanck character, math many of them
+print(y)
+# %%
+hand=open('mbox-short.txt')
+numlist=list()
+for line in hand:
+    line=line.rstrip()
+    stuff=re.findall('^X-DSPAM-Confidence: ([0-9.]+)',line) # . is for float
+    #print(stuff)
+    #print(len(stuff))
+    if len(stuff) != 1 : continue
+    num=float(stuff[0])
+    numlist.append(num)
+print('Maximum:', max(numlist))
+# %%
+x="We just receive $100 for cookies"
+y=re.findall('\$[0-9.]+', x)# \ excape
+print(y)
+# %%
+import pandas as pd
+hand=open('sample.txt')
+text=hand.read()
+y=re.findall('[0-9]+',text) # one or more digits + one or more digits
+y=[int(i)for i in y]
+sum(y)
+# %%
+hand=open('actualData.txt')
+text=hand.read()
+y=re.findall('[0-9]+',text) # one or more digits + one or more digits
+y=[int(i)for i in y]
+sum(y)
+# %%

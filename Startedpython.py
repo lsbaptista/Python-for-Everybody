@@ -343,7 +343,7 @@ while True:
         print('Invalid input')
         continue
     if l is None or sval>l:
-    	l=sval 
+        l=sval 
     elif s is None or sval<s:
         s=sval
 
