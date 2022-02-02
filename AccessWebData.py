@@ -116,3 +116,44 @@ fhand=urllib.request.urlopen('http://data.pr4e.org/romeo.txt')
 for line in fhand:
     print(line.decode().strip())
 # %%
+fhand=urllib.request.urlopen('http://data.pr4e.org/romeo.txt')
+counts=dict()
+for line in fhand:
+    words=line.decode().strip()
+    for word in words:
+        counts[word]=counts.get(word,0)+1
+print(counts)
+
+## Parsing Web Pages
+# %%
+import urllib.request, urllib.parse,urllib.error
+import bs4 as bs
+
+# %%
+url=input('Enter -')
+html=urllib.request.urlopen(url).read()
+soup=bs(html,'html.parser')
+
+# Retrive all off the anchor tags
+tags=soup('a')
+for tag in tags:
+    print(tag.get('href', None))
+# %%
+import urllib.request, urllib.parse,urllib.error
+from bs4 import BeautifulSoup as bs
+import ssl
+
+# Ignore ssl.create_default_context()
+ctx=ssl.create_default_context()
+ctx.check_hostname=False
+ctx.verify_mode=ssl.CERT_NONE
+
+url=input('Enter -')
+html=urllib.request.urlopen(url,context=ctx).read()
+soup=bs(html,'html.parser')
+
+# Retrive all off the anchor tags
+tags=soup('a')
+for tag in tags:
+    print(tag.get('href', None))
+# %%
